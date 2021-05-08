@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "staging": "UMI_ENV=staging && umi dev",
+    "local": "UMI_ENV=local && umi dev",
+    "build": "umi build",
+    "test": "umi test",
+    "lint": "eslint {src,mock,tests}/**/*.{js,jsx} --fix",
+    "precommit": "lint-staged",
+    "extract": "./node_modules/.bin/formatjs extract src/**/*.js* --out-file src/locales/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]' --format formatter.js"
+  },
+  "dependencies": {
+    "dva": "^2.4.1",
+    "dva-immer": "^1.0.0",
+    "dva-loading": "^3.0.22",
+    "dva-logger": "^1.0.0",
+    "formatjs": "^0.1.1",
+    "object-assign": "^4.1.1",
+    "path-to-regexp": "^6.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-intl": "^5.17.4"
+  },
+  "devDependencies": {
+    "@formatjs/cli": "^4.2.11",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-formatjs": "^10.2.11",
+    "eslint": "^5.4.0",
+    "eslint-config-umi": "^1.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "react-test-renderer": "^16.7.0",
+    "umi": "^2.7.7",
+    "umi-plugin-react": "^1.15.8"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}
